@@ -4,9 +4,9 @@ PWA 应用必须快速、可安装，这意味着它们在有网络、无网络�
 
 如果你对 service worker 还不熟悉，可以阅读 [Service Worker 介绍](https://developers.google.com/web/fundamentals/primers/service-worker/) 来初步了解它能做什么，它的生命周期以及更多内容。一旦你完成本教程的内容，一定要学习 [调试 Service Worker](https://codelabs.developers.google.com/codelabs/debugging-service-workers/#0) 来更深入的学习如何使用 service worker 来开发。
 
-service worker 提供的特性应该被认为是渐进增强，只有在浏览器支持的情况下才能使用。例如，service worker 可以缓存 app shell 和数据，在离线的时候使用。当 service worker 不被支持的环境，离线代码不会被调用，用户可以得到一个基础体验。使用特性检测来提供渐进增强功能代价很小并且在不支持的旧版本浏览器上也不会影响页面的功能。
+service worker 提供的特性应该被认为是渐进增强的，只有在浏览器支持的情况下才能使用。例如，service worker 可以缓存 app shell 和数据，在离线的时候使用。当 service worker 不被支持的环境，离线代码不会被调用，用户可以得到一个基础体验。使用特性检测来提供渐进增强功能代价很小并且在不支持的旧版本浏览器上也不会影响页面的功能。
 
-*service worker 的功能支持 https 的页面上可用（ http://localhost 和等价的网址也能工作，仅仅是为了测试）。想学习这个限制背后的原理，可以从 Chromium team 查看 [Prefer Secure Origins For Powerful New Features](http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features) 这篇文章。*
+*service worker 的功能只在通过 https 访问的页面上可用（ http://localhost 和等价的网址也能工作，但仅仅是为了测试）。想了解这个限制背后的原理，可以查看 Chromium team 的 [Prefer Secure Origins For Powerful New Features](http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features) 这篇文章。*
 
 ### 如果可用则注册 Service Worker
 

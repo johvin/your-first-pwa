@@ -2,7 +2,7 @@
 
 选择正确的[缓存策略](https://jakearchibald.com/2014/offline-cookbook/)是很重要的，选择依赖于你的应用要展示数据的类型。比如，像天气和股票报价一类的时效性数据应该尽可能的保持最新，而头像图片或文章内容更新的频率可以低一些。
 
-[缓存第一网络第二](https://jakearchibald.com/2014/offline-cookbook/#cache-then-network)（译者改：此处原文的链接地址是 [cache and network race](https://jakearchibald.com/2014/offline-cookbook/#cache-network-race)，根据后面的解释可以判断文章的意思应该是改后的链接内容）是我们 app 理想的缓存策略。这个策略会尽快的将数据显示出来，一旦网络返回最新数据，页面也会更新。与[网络第一缓存第二](https://jakearchibald.com/2014/offline-cookbook/#network-falling-back-to-cache)策略相比，用户不必等待网络请求超时就可以直接看到内容。
+[缓存第一网络第二](https://jakearchibald.com/2014/offline-cookbook/#cache-then-network)（译者注：此处原文的链接地址是 [cache and network race](https://jakearchibald.com/2014/offline-cookbook/#cache-network-race)，根据后面的解释可以判断文章的意思应该是改后的链接内容）是我们 app 理想的缓存策略。这个策略会尽快的将数据显示出来，一旦网络返回最新数据，页面也会更新。与[网络第一缓存第二](https://jakearchibald.com/2014/offline-cookbook/#network-falling-back-to-cache)策略相比，用户不必等待网络请求超时就可以直接看到内容。
 
 `缓存第一网络第二` 意味着我们需要发起两个异步请求，一个请求缓存，一个请求网络。网络请求的代码不需要太多更改，但是我们需要更改 service worker 的代码以便在返回网络请求的结果前缓存下来。
 
