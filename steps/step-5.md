@@ -14,7 +14,7 @@ app.js 中已经包含要注入的数据了，即 `initialWeatherForecast`。
 
 用户的设定需要存储在本地，可以使用 IndexDB 或其他快速的存储机制。这里为了简化，我们使用 localStorage，但它并不是理想的线上解决方案，因为它是同步阻塞的存储机制，在某些设备上会很慢。
 
-*可以使用 `[idb](https://www.npmjs.com/package/idb)` 代替 localStorage，`[localForage](https://github.com/localForage/localForage)` 是对 `idb` 的简单封装。*
+*可以使用 [`idb`](https://www.npmjs.com/package/idb) 代替 localStorage，[`localForage`](https://github.com/localForage/localForage) 是对 `idb` 的简单封装。*
 
 下面我们来完成保存用户选择城市的函数功能，找到下面的 TODO 注释行：
 
@@ -93,7 +93,7 @@ document.getElementById('butAddCity').addEventListener('click', function() {
   });
 ```
 
-### 验证结果
+### 试试看
 
 - 首次启动，app 应该立即显示 `initialWeatherForecast` 的预报数据。
 - 点击添加城市按钮，验证是否有两个预告卡片显示出来。

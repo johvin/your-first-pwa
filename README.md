@@ -12,6 +12,6 @@
 1. [实现 app shell](./steps/step-4.md)
 1. [从第一次快速载入开始](./steps/step-5.md)
 1. [使用 service worker 预缓存 app shell](./steps/step-6.md)
-1. 使用 service worker 缓存预报数据（待翻译）
+1. [使用 service worker 缓存预报数据](./steps/step-7.md)
 1. 支持原生集成（待翻译）
 1. 分发到安全的主机然后庆祝一下（待翻译）

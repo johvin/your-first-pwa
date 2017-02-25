@@ -6,7 +6,7 @@ PWA 应用必须快速、可安装，这意味着它们在有网络、无网络�
 
 service worker 提供的特性应该被认为是渐进增强，只有在浏览器支持的情况下才能使用。例如，service worker 可以缓存 app shell 和数据，在离线的时候使用。当 service worker 不被支持的环境，离线代码不会被调用，用户可以得到一个基础体验。使用特性检测来提供渐进增强功能代价很小并且在不支持的旧版本浏览器上也不会影响页面的功能。
 
-* service worker 的功能支持 https 的页面上可用（ http://localhost 和等价的网址也能工作，仅仅是为了测试）。想学习这个限制背后的原理，可以从 Chromium team 查看 [Prefer Secure Origins For Powerful New Features](http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features) 这篇文章。*
+*service worker 的功能支持 https 的页面上可用（ http://localhost 和等价的网址也能工作，仅仅是为了测试）。想学习这个限制背后的原理，可以从 Chromium team 查看 [Prefer Secure Origins For Powerful New Features](http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features) 这篇文章。*
 
 ### 如果可用则注册 Service Worker
 
@@ -106,7 +106,7 @@ self.addEventListener('activiate', function (event) {
 
 最后一句修复了一种边角情况，具体可以看下面的解释。
 
-*当 app 准备完全后，`self.clients.claim()` 会修复“app 不返回最新数据”的边角情况。这种情况可以复现，注释掉这行代码后进行如下操作：1）首次加载 app，显示纽约市的数据。2）刷新页面。3）切换成离线。4）重新加载 app。 期望的效果是显示纽约新的数据，但实际看到的是初始化的数据。这种情况出现的原因是 service worker 还没有激活。`self.clients.claim()` 会让你更快的激活 service worker。(译者注：这里例子并不能验证 `self.clients.claim()` 的作用，因为目前为止，应用并没有缓存预报数据，因此再次刷新后新数据就会丢失，只会显示初始化的数据。这个实验可以在完成下一节 “使用 service worker 缓存预报数据” 之后再做一次，应该就会得到想要的结果。)*
+*当 app 准备完全后，`self.clients.claim()` 会修复“app 不返回最新数据”的边角情况。这种情况可以复现，注释掉这行代码后进行如下操作：1）首次加载 app，显示纽约市的数据。2）刷新页面。3）切换成离线。4）重新加载 app。 期望的效果是显示纽约新的数据，但实际看到的是初始化的数据。这种情况出现的原因是 service worker 还没有激活。`self.clients.claim()` 会让你更快的激活 service worker。(译者注：这个例子并不能验证 `self.clients.claim()` 的作用，因为目前为止，应用并没有缓存预报数据，因此再次刷新后新数据就会丢失，只会显示初始化的数据。这个实验可以在完成下一节 “使用 service worker 缓存预报数据” 之后再做一次，应该就会得到想要的结果。)*
 
 最后，我们来更新下 app shell 需要缓存的资源，如下：
 
@@ -159,7 +159,7 @@ self.addEventListener('fetch', function (e) {
 });
 ```
 
-*如果在控制台没有看到期望的 log，确保更改了 cacheName 并且查看的是对的 service worker，并且在对的 service worker 上点击 inspect 连接。如果还是不正常，请查看后面 “测试 service worker 的建议” 一节的内容。*
+*如果在控制台没有看到期望的 log，确保更改了 cacheName 并且查看的是对的 service worker，并且在对的 service worker 上点击 inspect 连接。如果还是不正常，请查看后面 [测试 service worker 的建议](#测试-service-worker-的建议) 一节的内容。*
 
 ### 验证
 
