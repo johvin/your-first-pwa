@@ -14,4 +14,4 @@
 1. [使用 service worker 预缓存 app shell](./steps/step-6.md)
 1. [使用 service worker 缓存预报数据](./steps/step-7.md)
 1. [支持原生集成](./steps/step-8.md)
-1. 分发到安全的主机然后庆祝一下（待翻译）
+1. [分发到安全的主机然后庆祝一下](./steps/step-9.md)
