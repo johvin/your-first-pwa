@@ -45,7 +45,7 @@ self.addEventListener('fetch', function (e) {
           cache.put(e.request.url, response.clone());
           return response;
         });
-      });
+      })
     );
   } else {
     /*
@@ -61,7 +61,7 @@ self.addEventListener('fetch', function (e) {
 });
 ```
 
-上面代码的意思相信大家都能理解，这里就不解释了。
+上面代码的意思相信大家都能理解，这里就不解释了。（原文此处有解释，因为逻辑比较简单，所以此处省略。）
 
 现在，我们的 app 还不能在离线模式下工作。我们实现了缓存、获取 app shell 文件的功能，但即使我们缓存了数据，app 依然没有检查缓存来查看是否有可用的天气数据。
 
@@ -79,7 +79,7 @@ self.addEventListener('fetch', function (e) {
 if ('caches' in window) {
   caches.match(url).then(function (response) {
     if (response) {
-      response.json().then(function updateFormCache(json) {
+      response.json().then(function updateFromCache(json) {
         var results = json.query.results;
         results.key = key;
         results.label = label;
